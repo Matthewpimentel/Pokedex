@@ -18,17 +18,7 @@ export async function getPokemon(url) {
     })
 }
 
-export async function getHabitats(url) {
-    return new Promise((resolve, reject) => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                resolve(data);;
-            })
-    })
-}
-
-export async function getHabitat(url) {
+export async function getAllItem(url) {
     return new Promise((resolve, reject) => {
         fetch(url)
             .then(res => res.json())
@@ -37,3 +27,14 @@ export async function getHabitat(url) {
             })
     })
 }
+
+export async function getItem(url) {
+    return new Promise((resolve, reject) => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                resolve(data);
+            })
+    })
+}
+

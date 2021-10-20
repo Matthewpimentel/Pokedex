@@ -2,7 +2,7 @@ import React from 'react';
 import typeColors from '../helpers/typeColors'
 import '../App.css';
 
-function Card({ pokemon, PokemonMove }) {
+function Card({ pokemon }) {
     return (
         <div className="Card">
             <div className="Card__img">

@@ -3,7 +3,15 @@
 }
 
 body{
-  background-color: azure;
+  background-color: rgb(243, 160, 160);
+}
+
+#all-pokemon{
+  display: none;
+}
+
+#all-items{
+  display: none;
 }
 
 .grid-container {
@@ -37,6 +45,7 @@ p {
 .Card {
   background: white;
   border-radius: 10px;
+  height: 100%;
 }
 
 .Card__img {
@@ -64,10 +73,12 @@ p {
 
 .Card__info {
   margin-left: 10px;
+  margin: 3px;
 }
 
 .Card__data {
   padding-bottom: 10px;
+  margin: 3px;
 }
 
 .Card__data .title {
