@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { getAllItem, getItem } from "../services/pokemon"
 import ItemCard from "./ItemCard";
+import Pokeball from "../images/pokeball.gif"
 
 function Items() {
-    const [itemData, setItemData] = useState( [] )
+  const [itemData, setItemData] = useState([])
   const [nextUrl, setNextUrl] = useState("");
   const [prevUrl, setPrevUrl] = useState("");
   const [loading, setLoading] = useState(true);
@@ -30,7 +31,7 @@ function Items() {
   }
 
   const prev = async () => {
-    if(!prevUrl){
+    if (!prevUrl) {
       return
     }
     setLoading(true);
@@ -41,7 +42,7 @@ function Items() {
     setLoading(false);
   }
 
-  const loadingItem = async(data) => {
+  const loadingItem = async (data) => {
     let _itemData = await Promise.all(data.map(async item => {
       let itemRecord = await getItem(item.url);
       return itemRecord
@@ -52,26 +53,27 @@ function Items() {
 
   return (
     <div id="all-items">
-      {loading ? 
-      <h1>Loading...</h1> 
-      
-      : (
-        <>
-        <div className="btn">
-          <button onClick={prev}>Previous</button>
-          <button onClick={next}>Next</button>
+      {loading ?
+        <div className="loading">
+          <h1>Loading...</h1>
+          <img src={Pokeball} width="250"></img>
         </div>
-          <div className="grid-container">
-            {itemData.map((item, i) => {
-              return <ItemCard key={i} item={item}/>
-            })}
-          </div>
-          <div className="btn">
-          <button onClick={prev}>Previous</button>
-          <button onClick={next}>Next</button>
-        </div>
-        </>
-      )}
+
+        : (
+          <>
+            <div className="btn">
+            </div>
+            <div className="grid-container">
+              {itemData.map((item, i) => {
+                return <ItemCard key={i} item={item} />
+              })}
+            </div>
+            <div className="btn">
+              <button onClick={prev}>Previous</button>
+              <button onClick={next}>Next</button>
+            </div>
+          </>
+        )}
     </div>
   );
 }

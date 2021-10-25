@@ -2,6 +2,7 @@ import '../App.css';
 import React, {useState, useEffect} from "react";
 import { getAllPokemon, getPokemon } from "../services/pokemon"
 import Card from './Card';
+import Pokeball from "../images/pokeball.gif"
 
 function AllPokemon () {
 
@@ -59,13 +60,14 @@ const [pokemonData, setPokemonData] = useState( [] )
   return (
     <div id="all-pokemon">
       {loading ? 
-      <h1>Loading...</h1> 
+      <div className="loading">
+        <h1>Loading...</h1> 
+        <img src={Pokeball} width="250"></img>
+      </div>
       
       : (
         <>
         <div className="btn">
-          <button onClick={prev}>Previous</button>
-          <button onClick={next}>Next</button>
         </div>
           <div className="grid-container">
             {pokemonData.map((pokemon, i) => {

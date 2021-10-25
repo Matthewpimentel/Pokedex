@@ -1,3 +1,8 @@
+const baseUrl = "http://pokeapi.co/api/v2"
+const query = {
+    pokemon: "pokemon"
+}
+
 export async function getAllPokemon(url) {
     return new Promise((resolve, reject) => {
         fetch(url)
@@ -36,5 +41,9 @@ export async function getItem(url) {
                 resolve(data);
             })
     })
+}
+
+export async function fetchPokemon(pokemon) {
+    return fetch(`${baseUrl}/${query.pokemon}/${pokemon}`);
 }
 
