@@ -7,7 +7,7 @@ body{
 }
 
 #all-pokemon{
-  display: none;
+  display: block;
 }
 
 #all-items{
